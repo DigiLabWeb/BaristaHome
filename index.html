@@ -14,12 +14,14 @@
 <title>Menú · Barista Home coffee &amp; brunch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#163B4E; --navy-d:#102E3E; --caramel:#BB7430; --brown:#946949; --tan:#D6A972; --cream:#F3EAE0; --white:#FFFFFF;
   --bg:var(--navy); --ink:#FFFFFF; --line:rgba(255,255,255,.22);
   --sans:"Poppins","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --serif:"Cormorant Garamond","Didot","Bodoni 72",Georgia,serif;
+  --script:"Great Vibes","Snell Roundhand","Brush Script MT",cursive;
   box-sizing:border-box; color-scheme:light dark;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
@@ -29,7 +31,7 @@
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 58px);scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body{margin:0;overflow-anchor:none;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a:focus-visible{outline:2px solid var(--tan);outline-offset:3px;border-radius:4px}
 .wrap{max-width:980px;margin:0 auto;padding:0 16px}
@@ -39,9 +41,9 @@ a:focus-visible{outline:2px solid var(--tan);outline-offset:3px;border-radius:4p
 .ring{width:150px;height:150px;margin:0 auto 18px;border-radius:50%;background:#fff;display:grid;place-content:center;justify-items:center;gap:6px;
   box-shadow:0 0 0 4px #C9A15E,0 0 0 9px #fff,0 0 0 11px #C9A15E}
 .ring img{width:54px}
-.ring span{font-size:10px;letter-spacing:.3em;color:#A9854A;padding-left:.3em}
-.hero h1{font-weight:700;font-size:clamp(82px,24vw,140px);line-height:.95;margin:0;color:#fff}
-.hero .sub{font-weight:300;letter-spacing:.34em;font-size:13px;margin:8px 0 0;padding-left:.34em;text-transform:uppercase}
+.ring span{font-family:var(--serif);font-weight:500;font-size:12px;letter-spacing:.3em;color:#A9854A;padding-left:.3em}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(88px,26vw,150px);line-height:.9;margin:0;color:#fff}
+.hero .sub{font-family:var(--script);font-size:clamp(36px,10vw,52px);color:var(--tan);margin:-6px 0 0;line-height:1.1}
 
 /* Navegación */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);border-bottom:1px solid var(--line)}
@@ -55,15 +57,16 @@ section{padding:34px 0 40px}
 section.white{background:#fff;color:var(--navy)}
 section.navy{background:var(--navy);color:#fff}
 .title{display:flex;align-items:center;gap:18px;margin:0 0 6px}
-.title h2{font-weight:300;text-transform:uppercase;letter-spacing:.05em;font-size:clamp(28px,8vw,46px);line-height:1.05;margin:0;flex:0 0 auto}
-.title::after{content:"";flex:1;height:3px;background:currentColor;opacity:.9;border-radius:2px}
-.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:14px;margin:0 0 14px}
+.title h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,11vw,60px);line-height:1;margin:0;flex:0 0 auto;letter-spacing:.005em}
+.title::after{content:"";flex:1;height:1px;background:var(--tan);opacity:.9}
+.kicker{font-family:var(--script);font-size:32px;line-height:1.1;color:var(--tan);margin:0 0 16px}
+.white .kicker{color:#A9854A}
 .note{font-size:13px;margin:4px 0 16px}
 .white .note b,.white .caramel{color:var(--caramel)}
 .sizes-legend{font-size:12px;text-align:right;margin:0 0 10px;font-weight:600}
 .sizes-legend span{font-weight:400;opacity:.8}
-h3{text-transform:uppercase;letter-spacing:.14em;font-size:15px;font-weight:700;margin:26px 0 12px}
-.navy h3{color:#fff} .white h3{color:var(--navy)}
+h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:28px;line-height:1.1;margin:28px 0 12px}
+.navy h3{color:var(--tan)} .white h3{color:var(--navy)}
 
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}
 @media (min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -76,7 +79,7 @@ h3{text-transform:uppercase;letter-spacing:.14em;font-size:15px;font-weight:700;
 .dual span{display:flex;flex-direction:column;align-items:center;gap:2px}
 .dual em{font-style:normal;font-size:10px;font-weight:600;color:var(--caramel)}
 .dual b{background:var(--navy);color:#fff;border-radius:8px;padding:2px 8px;font-size:17px;font-weight:600}
-.fav .nm{color:var(--caramel);font-weight:700;font-size:16px;line-height:1.2;margin:6px 0 0}
+.fav .nm{font-family:var(--serif);color:var(--caramel);font-weight:600;font-size:22px;line-height:1.1;margin:6px 0 0}
 .fav .ds{font-size:12px;opacity:.75;margin:2px 0 0}
 
 /* Mosaicos con marco crema (bebidas frías y calientes): el nombre ya viene en la pieza */
@@ -93,21 +96,21 @@ h3{text-transform:uppercase;letter-spacing:.14em;font-size:15px;font-weight:700;
 /* Tarjetas blancas de brunch y ensaladas, con plato redondo y precio en píldora café */
 .bcard{background:#fff;color:#111;border-radius:40px;padding:16px 12px 30px;text-align:center;position:relative;margin-bottom:18px;display:flex;flex-direction:column}
 .bcard img{width:86%;margin:0 auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%}
-.bcard .nm{font-weight:700;font-size:16px;margin:10px 0 4px;line-height:1.2}
+.bcard .nm{font-family:var(--serif);font-weight:600;font-size:23px;margin:8px 0 4px;line-height:1.1;color:var(--navy)}
 .bcard .ds{font-size:12.5px;line-height:1.35;margin:0}
 .bcard .pill{position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);background:var(--brown);color:#fff;border-radius:999px;padding:4px 26px;font-size:19px;font-weight:500;white-space:nowrap}
 .promo{display:flex;align-items:center;gap:14px;margin:0 0 24px}
 .promo .badge{flex:0 0 auto;width:92px;height:92px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-content:center;text-align:center;line-height:1;box-shadow:0 0 0 3px #C9A15E}
 .promo .badge small{font-size:10px}
-.promo .badge b{font-size:30px;font-weight:500}
+.promo .badge b{font-family:var(--serif);font-size:36px;font-weight:600}
 .promo p{margin:0;font-size:15px}
-.promo strong{display:block;font-size:19px}
+.promo strong{display:block;font-family:var(--serif);font-weight:600;font-size:25px;line-height:1.1}
 .promo span{display:block;color:var(--tan);font-size:12.5px}
 
 /* Postres (hoja azul): nombre en mayúsculas, precio dorado, línea vertical fina */
 .dessert{border-left:1px solid rgba(255,255,255,.75);padding-left:8px}
 .dessert .hd{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
-.dessert .nm{font-weight:600;text-transform:uppercase;font-size:13.5px;line-height:1.2;margin:0}
+.dessert .nm{font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.1;margin:0}
 .dessert .pr{color:var(--tan);font-weight:600;font-size:14px;white-space:nowrap}
 .dessert .ds{color:var(--tan);text-transform:uppercase;font-size:10.5px;margin:3px 0 0}
 .dessert img{width:100%;aspect-ratio:1.45/1;object-fit:contain;margin-top:6px}
@@ -137,15 +140,19 @@ ul.list .ds{font-size:13px;margin:2px 0 0;max-width:60ch}
 .split img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .split h3{margin:0 0 8px}
 
+.chemex img{width:100%;height:auto;aspect-ratio:390/335;object-fit:contain}
 .chemex{display:grid;grid-template-columns:1fr;gap:10px;margin-top:26px;align-items:center}
 @media (min-width:700px){.chemex{grid-template-columns:1.1fr 1fr}}
-.chemex h4{font-weight:300;text-transform:uppercase;letter-spacing:.05em;font-size:22px;line-height:1.2;margin:0 0 8px}
+.chemex h4{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;margin:0 0 8px}
 .chemex p{margin:0;font-size:14px}
 .chemex .price{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--caramel);color:#fff;font-weight:700;font-size:18px;margin-top:12px}
 
+.twocol img{width:100%;height:auto;aspect-ratio:553/380;object-fit:contain}
+.boutique img{aspect-ratio:528/320}
 .twocol{display:grid;grid-template-columns:1fr;gap:10px;align-items:center}
 @media (min-width:700px){.twocol{grid-template-columns:1fr 1fr}}
-.boutique p{margin:0 0 4px;font-weight:700;font-size:16px}
+.boutique p{margin:0 0 4px;font-family:var(--serif);font-weight:600;font-size:22px}
+.boutique p span{font-family:var(--sans);font-size:15px;font-weight:600}
 .boutique p span{color:var(--tan)}
 
 /* Pie de página */
@@ -153,12 +160,12 @@ footer{background:var(--navy-d);color:#DCE4E8;border-top:3px solid #C9A15E}
 .f-in{max-width:980px;margin:0 auto;padding:40px 22px 30px}
 .f-top{text-align:center;margin-bottom:24px}
 .f-top img{width:46px;margin:0 auto 8px}
-.f-top .wm{letter-spacing:.42em;font-size:13px;color:var(--tan);margin:0;padding-left:.42em}
-.f-top .hi{font-weight:700;font-size:26px;color:#fff;margin:4px 0 0}
+.f-top .wm{font-family:var(--serif);font-weight:500;letter-spacing:.42em;font-size:15px;color:var(--tan);margin:0;padding-left:.42em}
+.f-top .hi{font-family:var(--script);font-weight:400;font-size:46px;color:#fff;margin:2px 0 0;line-height:1.1}
 .pet{display:inline-block;margin-top:10px;border:1px solid rgba(214,169,114,.6);border-radius:999px;padding:4px 14px;font-size:12.5px}
 .f-grid{display:grid;grid-template-columns:1fr;gap:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
 @media (min-width:700px){.f-grid{grid-template-columns:repeat(3,1fr)}}
-.f-grid h5{font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:12.5px;color:var(--tan);margin:0 0 10px}
+.f-grid h5{font-family:var(--serif);font-style:italic;font-weight:500;font-size:24px;color:var(--tan);margin:0 0 8px}
 .f-grid p{margin:0 0 4px;font-size:14px}
 .f-grid a{color:#fff;text-underline-offset:3px}
 .hours{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;font-size:14px}
@@ -173,7 +180,7 @@ footer{background:var(--navy-d);color:#DCE4E8;border-top:3px solid #C9A15E}
 <header class="hero">
   <div class="ring"><img src="img/logo.png" alt=""><span>BARISTAHOME</span></div>
   <h1>MENÚ</h1>
-  <p class="sub">Brunch and coffee</p>
+  <p class="sub">coffee &amp; brunch</p>
 </header>
 <nav aria-label="Categorías del menú"><div class="nav-in" id="nav"></div></nav>
 <main id="menu"></main>
@@ -182,7 +189,7 @@ footer{background:var(--navy-d);color:#DCE4E8;border-top:3px solid #C9A15E}
     <div class="f-top">
       <img src="img/logo.png" alt="">
       <p class="wm">BARISTAHOME</p>
-      <p class="hi">¡Te esperamos!</p>
+      <p class="hi">¡te esperamos!</p>
       <span class="pet">Somos pet friendly</span>
     </div>
     <div class="f-grid">
@@ -209,13 +216,13 @@ const split=(img,h,items,upper)=>`<div class="split"><img src="${I[img]}" alt=""
 const FR=["480 ml","600 ml"], CA=["360 ml","480 ml"];
 const SAB="+$10 saborizado: menta, cajeta, vainilla, almendra o rompope.";
 const S=[
- {id:"favoritos",nav:"Los favoritos",cls:"white",html:()=>title("Los favoritos")+
+ {id:"favoritos",nav:"Los favoritos",cls:"white",html:()=>title("Los favoritos","de la casa")+
   `<p class="note"><b>*Cambio de leche $15</b> · Light, deslactosada, soya, almendra o coco.</p><div class="grid">`+
   [{n:"Red Velvet",p:[88,97],i:"rv_frio"},{n:"Moka helado",p:[88,98],i:"moka_helado"},{n:"Cookies & Cream",p:[89,99],i:"cookies"},
    {n:"Chocolate Dubai",p:[88,98],i:"dubai_frio"},{n:"Espresso Sunset",p:[75,83],i:"sunset"},{n:"Iced Boba Coffee with Probióticos",p:[88,98],i:"boba"},
    {n:"Lavanda",p:[78,87],i:"lavanda"},{n:"Red Velvet",d:"Caliente",p:[78,87],i:"rv_cal"},{n:"Chocolate Dubai",d:"Caliente",p:[78,87],i:"dubai_cal"},{n:"Latte Caramel",p:[77,86],i:"latte_caramel"}
   ].map(fav).join("")+`</div>`},
- {id:"frias",nav:"Bebidas frías",cls:"navy",html:()=>title("Bebidas frías")+`<p class="sizes-legend">Estándar <span>480 ml</span> · Grande <span>600 ml</span></p><div class="grid g4">`+
+ {id:"frias",nav:"Bebidas frías",cls:"navy",html:()=>title("Bebidas frías","frescura en cada sorbo")+`<p class="sizes-legend">Estándar <span>480 ml</span> · Grande <span>600 ml</span></p><div class="grid g4">`+
   [{n:"Iced Caramel",p:[88,97],i:"t_iced_caramel"},{n:"Mazapán",p:[89,98],i:"t_mazapan"},{n:"Cajetoso",p:[88,98],i:"t_cajetoso"},{n:"Taro",p:[88,97],i:"t_taro"},
    {n:"Cold Brew",p:[56,66],i:"t_cold_brew"},{n:"Moka oscuro o blanco",p:[87,96],i:"t_moka"},{n:"Matcha",p:[88,97],i:"t_matcha"},{n:"Chai",p:[88,97],i:"t_chai"}].map(tile).join("")+`</div><div style="margin-top:26px">`+
   list([{n:"Iced Coffee latte frappé o frío",d:"Menta, vainilla, cereza, almendra o rompope.",p:[85,96]},
@@ -228,7 +235,7 @@ const S=[
    {n:"Chamoyada",d:"Mango, fresa, mandarina, naranja, limón, maracuyá y guayaba.",p:[89,98]},
    {n:"Naranjada o mandarinada",p:[77,86]},{n:"Limonada",p:[77,86]}],FR)+
   `<h3>Tamaño único</h3>`+list([{n:"Cafetada con limón y miel",p:45},{n:"Coffee soda con menta",p:45}])+`</div>`},
- {id:"calientes",nav:"Bebidas calientes",cls:"white",html:()=>title("Bebidas calientes")+`<p class="sizes-legend">Estándar <span>360 ml</span> · Grande <span>480 ml</span></p><div class="grid g4">`+
+ {id:"calientes",nav:"Bebidas calientes",cls:"white",html:()=>title("Bebidas calientes","para cada momento")+`<p class="sizes-legend">Estándar <span>360 ml</span> · Grande <span>480 ml</span></p><div class="grid g4">`+
   [{n:"Chai",p:[78,87],i:"t_chai_cal"},{n:"Taro",p:[78,87],i:"t_taro_cal"},{n:"Mazapán Latte",p:[80,90],i:"t_mazapan_cal"},{n:"Caramel latte",p:[77,86],i:"t_caramel_cal"},
    {n:"Café americano",p:[46,56],i:"t_americano"},{n:"Affogato",p:65,ml:"120 ml",i:"t_affogato"},{n:"Espresso Barista",p:65,ml:"120 ml",i:"t_espresso"},{n:"Tizana",p:[79,89],i:"t_tizana"}].map(tile).join("")+`</div><div style="margin-top:26px">`+
   list([{n:"Cajetoso latte",p:[77,88]},{n:"Matcha",p:[78,87]},{n:"Chocolate oscuro o blanco",p:[70,79]},
@@ -237,7 +244,7 @@ const S=[
    {n:"Moka oscuro o blanco",p:[79,89]},{n:"Té",d:"Pregunta por sabores de temporada.",p:[56,65]},{n:"Tizana",d:"Pregunta por sabores de temporada.",p:[79,89]}],CA)+
   `<h3>Tamaño único</h3>`+list([{n:"Espresso",p:39},{n:"Espresso largo",p:42},{n:"Espresso cortado",p:45},{n:"Espresso doble",p:45}])+
   `<div class="chemex"><div><h4>Método de extracción con café de especialidad</h4><p>Chemex es un método de extracción artesanal que realza la pureza del café. Un método limpio y balanceado que resalta notas suaves, aroma intenso y una experiencia sensorial única.</p><span class="price">$80</span></div><img src="${I.chemex}" alt="Chemex" loading="lazy" decoding="async"></div></div>`},
- {id:"brunch",nav:"Brunch",cls:"navy",html:()=>title("Brunch","All day")+
+ {id:"brunch",nav:"Brunch",cls:"navy",html:()=>title("Brunch","all day")+
   `<div class="promo"><div class="badge"><small>Por</small><b>$35</b><small>extras a<br>tu platillo</small></div><p><strong>¡Agrega a tu desayuno!</strong>fruta o jugo y café refill<span>Disponible de 8:00 a.m. a 2:00 p.m.</span></p></div><div class="grid">`+
   [{n:"Chilaquiles",d:"Verdes o rojos, con pollo 60 g o huevo 2 (pzs), queso, crema, frijoles y aguacate.",p:120,i:"chilaquiles"},
    {n:"Enfrijoladas",d:"Rellenas de pollo, adornadas de queso panela, chorizo, crema y aguacate, 3 (pzs).",p:125,i:"enfrijoladas"},
@@ -249,14 +256,14 @@ const S=[
    {n:"Divorciados",d:"Estrellados (2 pz) bañados en salsa roja y verde, montado en tortilla, frijoles con totopos y queso.",p:95,i:"divorciados"},
    {n:"Omelette clásico",d:"Con jamón de pavo, queso manchego, con dobladitas de salsa roja o verde.",p:110,i:"omelette_clasico"},
    {n:"Omelette champiñón",d:"Con salteado de espinaca, queso manchego con dobladitas de salsa roja o verde.",p:115,i:"omelette_champ"}].map(bcard).join("")+`</div>`},
- {id:"ensaladas",nav:"Ensaladas y más",cls:"navy",html:()=>`<div class="grid">`+
+ {id:"ensaladas",nav:"Ensaladas y más",cls:"navy",html:()=>title("Ensaladas y más","ligero y delicioso")+`<div class="grid">`+
   [{n:"Ensalada César",d:"Lechuga, fajitas de pollo asado, toque de parmesano, crutones y aderezo césar.",p:120,i:"cesar"},
    {n:"Ensalada Pera",d:"Mix de lechuga y espinaca, con rodajas de pera, arándanos, nuez y queso de cabra cenizo con aderezo de miel mostaza.",p:115,i:"pera"},
    {n:"Plato de fruta",d:"Plátano, manzana, melón con yogur natural y miel de abeja.",p:65,i:"fruta"},
    {n:"Avocado toast",d:"2 huevos sobre una cama de espinaca, montado en pan tostado con rebanadas de aguacate y ajonjolí espolvoreado.",p:95,i:"avocado"},
    {n:"Club sándwich",d:"Emparedado doble piso, cortado en 4 partes, relleno de pollo, jamón, queso manchego, tocino y jitomate, acompañado de papas a la francesa.",p:120,i:"club"},
    {n:"Parrillada individual",d:"Fajitas de arrachera 100 g, fajitas de pollo 100 g, chorizo 60 g, acompañada con cebolla curtida, guacamole, queso panela y pico de gallo.",p:180,i:"parrillada"}].map(bcard).join("")+`</div>`},
- {id:"pizzas",nav:"Pizzas y más",cls:"navy",html:()=>
+ {id:"pizzas",nav:"Pizzas y más",cls:"navy",html:()=>title("Pizzas y más","recién salido del horno")+
   split("pizzas","Pizzas",[{n:"Pizza 4 quesos",d:"Pan pizza individual con salsa de tomate, queso manchego, mozzarella, Oaxaca y queso de cabra.",p:85},
    {n:"Pizza pepperoni",d:"Pan pizza individual con salsa de tomate, queso mozzarella y pepperoni.",p:90},
    {n:"Pizza cochinita",d:"Pan pizza individual, mozzarella y cochinita pibil, con cebolla y salsa de la casa.",p:98},
@@ -282,41 +289,43 @@ const S=[
   split("papas","Papas gajo",[{n:"Papas gajo",d:"Acompañadas de queso manchego, chorizo o tocino, con aderezo de chipotle.",p:98}],1)+
   `<h3>Extras</h3><div class="twocol" style="align-items:start">`+list([{n:"Arrachera 100 g",p:45},{n:"Chorizo 50 g",p:25},{n:"Guacamole 50 g",p:30},{n:"Fajitas de pollo 100 g",p:40}])+
   list([{n:"Queso",p:20},{n:"Manchego 20 g",p:20},{n:"Tocino 30 g",p:20},{n:"Huevo 1 pza",p:15},{n:"Papas a la francesa 150 g",p:30}])+`</div>`},
- {id:"postres",nav:"Postres",cls:"navy",html:()=>title("Postres")+`<div class="grid">`+
+ {id:"postres",nav:"Postres",cls:"navy",html:()=>title("Postres","el antojo perfecto")+`<div class="grid">`+
   [{n:"Pastel de chocolate",p:65,i:"p_chocolate"},{n:"Red Velvet",p:65,i:"p_redvelvet"},{n:"Pastel de limón",p:65,i:"p_limon"},
    {n:"Pastel estilo tiramisú",p:65,i:"p_tiramisu"},{n:"Volcán de chocolate",d:"Acompañado de helado de vainilla",p:75,i:"p_volcan"},
    {n:"Pastel de zanahoria",p:65,i:"p_zanahoria"},{n:"Pan de elote",d:"Pídelo con helado de vainilla por $15",p:55,i:"p_elote"},
    {n:"Cheesecake de mango",p:68,i:"p_mango"},{n:"Cheesecake zarzamora",p:68,i:"p_zarzamora"},{n:"Pastel Oreo",p:68,i:"p_oreo"},{n:"Brownie con helado",p:70,i:"p_brownie"}].map(dessert).join("")+`</div>`},
- {id:"panaderia",nav:"Panadería",cls:"navy",html:()=>title("Panadería")+`<div class="twocol"><div>`+
+ {id:"panaderia",nav:"Panadería",cls:"navy",html:()=>title("Panadería","recién horneado")+`<div class="twocol"><div>`+
   list([{n:"Strudel de manzana",d:"Pídelo con helado de vainilla por $15.",p:42},{n:"Rol de arándano",p:40},{n:"Chocolatín",p:40},{n:"Galletas",d:"Varios sabores (bolsa de 70-100 g).",p:38}])+
   `</div><img src="${I.strudel}" alt="Strudel de manzana" loading="lazy" decoding="async"></div>`},
- {id:"boutique",nav:"Productos boutique",cls:"navy",html:()=>title("Productos boutique")+`<div class="twocol boutique"><div>
+ {id:"boutique",nav:"Productos boutique",cls:"navy",html:()=>title("Productos boutique","llévate nuestro café")+`<div class="twocol boutique"><div>
   <p>Café premium:</p><p><span>1 kg $390.00 · 500 g $212.00</span></p>
   <p style="margin-top:10px">Café de especialidad (85 pts.):</p><p><span>1 kg $500.00 · 500 g $311.00</span></p>
   <p style="margin-top:10px">Moka beans: <span>45 g $45.00</span></p></div><img src="${I.cafe_bolsa}" alt="Café de especialidad Barista Home" loading="lazy" decoding="async"></div>`},
- {id:"extras",nav:"Extras",cls:"navy",html:()=>title("Extras")+`<div class="twocol" style="align-items:start"><div>`+
+ {id:"extras",nav:"Extras",cls:"navy",html:()=>title("Extras","a tu gusto")+`<div class="twocol" style="align-items:start"><div>`+
   list([{n:"Tipo de leche",d:"Light, deslactosada, soya, almendra, coco.",p:15},{n:"Bola de helado",p:15},{n:"Crema batida",p:15},{n:"Carga de café",p:15},{n:"Extra de café",p:15},{n:"Extra de jarabe",p:10}])+
   `</div><div><h3 style="margin-top:0">Otros</h3>`+list([{n:"Botella de agua (500 ml)",p:30},{n:"Refresco lata (355 ml)",p:35},{n:"Agua mineral (600 ml)",p:35},{n:"Jugo de naranja (200 ml)",p:30},{n:"Vaso de leche (200 ml)",p:25}])+`</div></div>`}
 ];
 document.getElementById("nav").innerHTML=S.map(s=>`<a href="#${s.id}">${s.nav}</a>`).join("");
 document.getElementById("menu").innerHTML=S.map(s=>`<section id="${s.id}" class="${s.cls}"><div class="wrap">${s.html()}</div></section>`).join("");
-// Resalta la categoría visible y centra solo la barra horizontal (sin mover la página)
+// Resalta la categoría visible. La barra horizontal se centra solo cuando el scroll
+// termina, para no interrumpir el desplazamiento con inercia del celular.
 const bar=document.getElementById("nav");
 const links=[...bar.querySelectorAll("a")];
-let current=null;
-function setActive(id){
-  if(id===current) return; current=id;
-  let on=null;
-  links.forEach(a=>{const m=a.getAttribute("href")==="#"+id; a.classList.toggle("on",m); if(m) on=a;});
-  if(on){
-    const left=on.offsetLeft-(bar.clientWidth-on.offsetWidth)/2;
-    bar.scrollTo({left:Math.max(0,left),behavior:"smooth"});
-  }
+let current=null, pending=null, idle=null;
+function paint(id){
+  links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+id));
 }
+function centerBar(){
+  const on=links.find(a=>a.classList.contains("on"));
+  if(!on) return;
+  const left=Math.max(0,on.offsetLeft-(bar.clientWidth-on.offsetWidth)/2);
+  if(Math.abs(bar.scrollLeft-left)>2) bar.scrollLeft=left;
+}
+window.addEventListener("scroll",()=>{clearTimeout(idle);idle=setTimeout(centerBar,180);},{passive:true});
 if("IntersectionObserver" in window){
   const io=new IntersectionObserver(es=>{
     const vis=es.filter(e=>e.isIntersecting);
-    if(vis.length) setActive(vis[0].target.id);
+    if(vis.length){const id=vis[0].target.id; if(id!==current){current=id; paint(id);}}
   },{rootMargin:"-40% 0px -55% 0px"});
   document.querySelectorAll("main section").forEach(s=>io.observe(s));
 }
