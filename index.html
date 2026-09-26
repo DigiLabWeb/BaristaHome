@@ -7,7 +7,8 @@
 <meta name="theme-color" content="#163B4E">
 <meta property="og:title" content="Menú · Barista Home coffee &amp; brunch">
 <meta property="og:description" content="Café de especialidad, brunch all day y postres. Blvd. Héroes del 5 de Mayo 3126, Puebla.">
-<meta property="og:image" content="img/og.jpg">
+<meta property="og:image" content="https://digilabweb.github.io/BaristaHome/img/og.jpg">
+<meta property="og:url" content="https://digilabweb.github.io/BaristaHome/">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <title>Menú · Barista Home coffee &amp; brunch</title>
@@ -44,7 +45,7 @@ a:focus-visible{outline:2px solid var(--tan);outline-offset:3px;border-radius:4p
 
 /* Navegación */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);border-bottom:1px solid var(--line)}
-.nav-in{max-width:980px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:9px 14px;scrollbar-width:none}
+.nav-in{max-width:980px;margin:0 auto;display:flex;position:relative;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;gap:6px;overflow-x:auto;padding:9px 14px;scrollbar-width:none}
 .nav-in::-webkit-scrollbar{display:none}
 .nav-in a{flex:0 0 auto;font-size:13px;font-weight:500;color:#fff;text-decoration:none;padding:6px 13px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
 .nav-in a.on{background:#fff;color:var(--navy);border-color:#fff}
@@ -199,12 +200,12 @@ const I = {"al_gusto": "img/al_gusto.webp", "avocado": "img/avocado.webp", "bagu
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dual=p=>`<div class="dual"><span><em>Estándar</em><b>$${p[0]}</b></span><span><em>Grande</em><b>$${p[1]}</b></span></div>`;
 const title=(t,k)=>`<div class="title"><h2>${t}</h2></div>${k?`<p class="kicker">${k}</p>`:""}`;
-const fav=it=>`<div class="fav"><img src="${I[it.i]}" alt="${esc(it.n)}" loading="lazy">${dual(it.p)}<p class="nm">${esc(it.n)}</p>${it.d?`<p class="ds">${esc(it.d)}</p>`:""}</div>`;
-const tile=it=>`<div class="tile"><img src="${I[it.i]}" alt="${esc(it.n)}" loading="lazy">${Array.isArray(it.p)?dual(it.p):`<div class="one">Tamaño único${it.ml?` · ${it.ml}`:""}<b>$${it.p}</b></div>`}${it.d?`<p class="ds">${esc(it.d)}</p>`:""}</div>`;
-const bcard=it=>`<div class="bcard"><img src="${I[it.i]}" alt="${esc(it.n)}" loading="lazy"><p class="nm">${esc(it.n)}</p><p class="ds">${esc(it.d)}</p><span class="pill">$${it.p}</span></div>`;
-const dessert=it=>`<div class="dessert"><div class="hd"><p class="nm">${esc(it.n)}</p><span class="pr">$${it.p}.00</span></div>${it.d?`<p class="ds">${esc(it.d)}</p>`:""}<img src="${I[it.i]}" alt="${esc(it.n)}" loading="lazy"></div>`;
+const fav=it=>`<div class="fav"><img src="${I[it.i]}" alt="${esc(it.n)}" loading="lazy" decoding="async">${dual(it.p)}<p class="nm">${esc(it.n)}</p>${it.d?`<p class="ds">${esc(it.d)}</p>`:""}</div>`;
+const tile=it=>`<div class="tile"><img src="${I[it.i]}" alt="${esc(it.n)}" loading="lazy" decoding="async">${Array.isArray(it.p)?dual(it.p):`<div class="one">Tamaño único${it.ml?` · ${it.ml}`:""}<b>$${it.p}</b></div>`}${it.d?`<p class="ds">${esc(it.d)}</p>`:""}</div>`;
+const bcard=it=>`<div class="bcard"><img src="${I[it.i]}" alt="${esc(it.n)}" loading="lazy" decoding="async"><p class="nm">${esc(it.n)}</p><p class="ds">${esc(it.d)}</p><span class="pill">$${it.p}</span></div>`;
+const dessert=it=>`<div class="dessert"><div class="hd"><p class="nm">${esc(it.n)}</p><span class="pr">$${it.p}.00</span></div>${it.d?`<p class="ds">${esc(it.d)}</p>`:""}<img src="${I[it.i]}" alt="${esc(it.n)}" loading="lazy" decoding="async"></div>`;
 const list=(items,sizes)=>(sizes?`<div class="heads" aria-hidden="true"><span><b>Estándar</b>${sizes[0]}</span><span><b>Grande</b>${sizes[1]}</span></div>`:"")+`<ul class="list">${items.map(it=>`<li><div class="row"><span class="n">${esc(it.n)}</span><span class="dots" aria-hidden="true"></span><span class="pp">${(Array.isArray(it.p)?it.p:[it.p]).map(v=>`<span>$${v}</span>`).join("")}</span></div>${it.d?`<p class="ds">${esc(it.d)}</p>`:""}</li>`).join("")}</ul>`;
-const split=(img,h,items,upper)=>`<div class="split"><img src="${I[img]}" alt="" loading="lazy"><div class="boxed ${upper?"upper":""}"><h3>${h}</h3><div class="box">${list(items)}</div></div></div>`;
+const split=(img,h,items,upper)=>`<div class="split"><img src="${I[img]}" alt="" loading="lazy" decoding="async"><div class="boxed ${upper?"upper":""}"><h3>${h}</h3><div class="box">${list(items)}</div></div></div>`;
 const FR=["480 ml","600 ml"], CA=["360 ml","480 ml"];
 const SAB="+$10 saborizado: menta, cajeta, vainilla, almendra o rompope.";
 const S=[
@@ -235,7 +236,7 @@ const S=[
    {n:"Capuchino clásico",d:SAB,p:[73,80]},{n:"Capuchino italiano",d:SAB,p:[80,90]},{n:"Capuchino irlandés",d:"Con crema de capuchino.",p:[80,90]},
    {n:"Moka oscuro o blanco",p:[79,89]},{n:"Té",d:"Pregunta por sabores de temporada.",p:[56,65]},{n:"Tizana",d:"Pregunta por sabores de temporada.",p:[79,89]}],CA)+
   `<h3>Tamaño único</h3>`+list([{n:"Espresso",p:39},{n:"Espresso largo",p:42},{n:"Espresso cortado",p:45},{n:"Espresso doble",p:45}])+
-  `<div class="chemex"><div><h4>Método de extracción con café de especialidad</h4><p>Chemex es un método de extracción artesanal que realza la pureza del café. Un método limpio y balanceado que resalta notas suaves, aroma intenso y una experiencia sensorial única.</p><span class="price">$80</span></div><img src="${I.chemex}" alt="Chemex" loading="lazy"></div></div>`},
+  `<div class="chemex"><div><h4>Método de extracción con café de especialidad</h4><p>Chemex es un método de extracción artesanal que realza la pureza del café. Un método limpio y balanceado que resalta notas suaves, aroma intenso y una experiencia sensorial única.</p><span class="price">$80</span></div><img src="${I.chemex}" alt="Chemex" loading="lazy" decoding="async"></div></div>`},
  {id:"brunch",nav:"Brunch",cls:"navy",html:()=>title("Brunch","All day")+
   `<div class="promo"><div class="badge"><small>Por</small><b>$35</b><small>extras a<br>tu platillo</small></div><p><strong>¡Agrega a tu desayuno!</strong>fruta o jugo y café refill<span>Disponible de 8:00 a.m. a 2:00 p.m.</span></p></div><div class="grid">`+
   [{n:"Chilaquiles",d:"Verdes o rojos, con pollo 60 g o huevo 2 (pzs), queso, crema, frijoles y aguacate.",p:120,i:"chilaquiles"},
@@ -288,23 +289,35 @@ const S=[
    {n:"Cheesecake de mango",p:68,i:"p_mango"},{n:"Cheesecake zarzamora",p:68,i:"p_zarzamora"},{n:"Pastel Oreo",p:68,i:"p_oreo"},{n:"Brownie con helado",p:70,i:"p_brownie"}].map(dessert).join("")+`</div>`},
  {id:"panaderia",nav:"Panadería",cls:"navy",html:()=>title("Panadería")+`<div class="twocol"><div>`+
   list([{n:"Strudel de manzana",d:"Pídelo con helado de vainilla por $15.",p:42},{n:"Rol de arándano",p:40},{n:"Chocolatín",p:40},{n:"Galletas",d:"Varios sabores (bolsa de 70-100 g).",p:38}])+
-  `</div><img src="${I.strudel}" alt="Strudel de manzana" loading="lazy"></div>`},
+  `</div><img src="${I.strudel}" alt="Strudel de manzana" loading="lazy" decoding="async"></div>`},
  {id:"boutique",nav:"Productos boutique",cls:"navy",html:()=>title("Productos boutique")+`<div class="twocol boutique"><div>
   <p>Café premium:</p><p><span>1 kg $390.00 · 500 g $212.00</span></p>
   <p style="margin-top:10px">Café de especialidad (85 pts.):</p><p><span>1 kg $500.00 · 500 g $311.00</span></p>
-  <p style="margin-top:10px">Moka beans: <span>45 g $45.00</span></p></div><img src="${I.cafe_bolsa}" alt="Café de especialidad Barista Home" loading="lazy"></div>`},
+  <p style="margin-top:10px">Moka beans: <span>45 g $45.00</span></p></div><img src="${I.cafe_bolsa}" alt="Café de especialidad Barista Home" loading="lazy" decoding="async"></div>`},
  {id:"extras",nav:"Extras",cls:"navy",html:()=>title("Extras")+`<div class="twocol" style="align-items:start"><div>`+
   list([{n:"Tipo de leche",d:"Light, deslactosada, soya, almendra, coco.",p:15},{n:"Bola de helado",p:15},{n:"Crema batida",p:15},{n:"Carga de café",p:15},{n:"Extra de café",p:15},{n:"Extra de jarabe",p:10}])+
   `</div><div><h3 style="margin-top:0">Otros</h3>`+list([{n:"Botella de agua (500 ml)",p:30},{n:"Refresco lata (355 ml)",p:35},{n:"Agua mineral (600 ml)",p:35},{n:"Jugo de naranja (200 ml)",p:30},{n:"Vaso de leche (200 ml)",p:25}])+`</div></div>`}
 ];
 document.getElementById("nav").innerHTML=S.map(s=>`<a href="#${s.id}">${s.nav}</a>`).join("");
 document.getElementById("menu").innerHTML=S.map(s=>`<section id="${s.id}" class="${s.cls}"><div class="wrap">${s.html()}</div></section>`).join("");
-const links=[...document.querySelectorAll("#nav a")];
+// Resalta la categoría visible y centra solo la barra horizontal (sin mover la página)
+const bar=document.getElementById("nav");
+const links=[...bar.querySelectorAll("a")];
+let current=null;
+function setActive(id){
+  if(id===current) return; current=id;
+  let on=null;
+  links.forEach(a=>{const m=a.getAttribute("href")==="#"+id; a.classList.toggle("on",m); if(m) on=a;});
+  if(on){
+    const left=on.offsetLeft-(bar.clientWidth-on.offsetWidth)/2;
+    bar.scrollTo({left:Math.max(0,left),behavior:"smooth"});
+  }
+}
 if("IntersectionObserver" in window){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
-    links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id));
-    const on=links.find(a=>a.classList.contains("on")); if(on) on.scrollIntoView({block:"nearest",inline:"center"});
-  }}),{rootMargin:"-40% 0px -55% 0px"});
+  const io=new IntersectionObserver(es=>{
+    const vis=es.filter(e=>e.isIntersecting);
+    if(vis.length) setActive(vis[0].target.id);
+  },{rootMargin:"-40% 0px -55% 0px"});
   document.querySelectorAll("main section").forEach(s=>io.observe(s));
 }
 </script>
